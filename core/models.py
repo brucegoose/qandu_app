@@ -23,3 +23,10 @@ class Answer(models.Model):
     
     def _unicode_(self):
       return self.txt
+    
+class Vote(models.Model):
+  user = models.ForeignKey(User)
+  question = models.ForeignKey(Question)
+  
+  def _unicode_(self):
+    return "%s upvoted" % (self.user.username)
